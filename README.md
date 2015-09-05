@@ -1,3 +1,3 @@
-React.js Boilerplate
+Ecmassript 6 Node Boilerplate
 =====================
 
