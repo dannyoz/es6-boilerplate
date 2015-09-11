@@ -6,17 +6,18 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "^3.4.8"
+    "express": "^4.8.0",
+    "jade": "^1.11.0"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
-    "baobab": "^1.1.2",
     "gulp": "^3.9.0",
-    "gulp-express" : "^0.3.5",
     "gulp-browserify": "^0.5.1",
+    "gulp-compass": "^2.1.0 ",
+    "gulp-express": "^0.3.5",
+    "gulp-minify-css": "^1.2.1",
     "gulp-sass": "^2.0.3",
-    "gulp-compass" : "^2.1.0 ",
-    "gulp-minify-css" : "^1.2.1",
-    "sass-includes": "^0.2.3"
+    "gulp-swig": "^0.7.4",
+    "sass-includes": "^0.3.2"
   }
 }

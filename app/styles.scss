@@ -11,7 +11,7 @@
 @include masonryClasses;
 @include formLined;
 @include rangeInput;
-@include icons;
+@include lineIcons;
 
 
 
@@ -27,6 +27,7 @@ $lighter : lighten($themeColour,5%);
 @include googleFont('roboto-slab',h1 h2 h3 h4 h5 h6);
 @include googleFont('open-sans', body textarea button);
 @include themeTypography($themeColour,#666,#111);
+@include headerSizes(45,20);
 
 @import "components/header/header";
 

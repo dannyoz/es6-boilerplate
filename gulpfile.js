@@ -6,7 +6,7 @@ var babelify = require("babelify");
 var compass = require('gulp-compass');
 var minifyCSS = require('gulp-minify-css');
 var server = require('gulp-express');
-
+var swig = require('gulp-swig');
 
 gulp.task('server', function () {
     server.run(['server.js']);
@@ -16,6 +16,14 @@ gulp.task('server', function () {
 gulp.task('html', function () {
   gulp.src('./app/index.html',{base: './app'})
     .pipe(gulp.dest('./build/'));
+  gulp.src('./app/views/**/*.html',{base: './app'})
+    .pipe(gulp.dest('./build/'));  
+});
+
+gulp.task('swig', function() {
+  gulp.src('./app/index.html')
+    .pipe(swig())
+    .pipe(gulp.dest('./build/'))
 });
 
 gulp.task('browserify', function () {
@@ -35,8 +43,6 @@ gulp.task('compass', function() {
     }))
     .pipe(minifyCSS())
 });
-
-
 
 gulp.task('watch', function () {
   gulp.watch('app/**/*.html', ['frontEnd']);
