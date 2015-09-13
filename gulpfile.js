@@ -34,7 +34,6 @@ gulp.task('browserify', function () {
     .pipe(gulp.dest('./build/js'));
 });
 
-
 gulp.task('compass', function() {
   gulp.src('./src/*.scss')
     .pipe(compass({

@@ -12,6 +12,7 @@
 @include formLined;
 @include rangeInput;
 @include lineIcons;
+@include fadeIn;
 
 
 
@@ -24,11 +25,23 @@ $lighter : lighten($themeColour,5%);
 
 @include themeBase($themeColour);
 @include formsTheme(#333,$lighter,$col-primary);
-@include googleFont('roboto-slab',h1 h2 h3 h4 h5 h6);
-@include googleFont('open-sans', body textarea button);
+@include googleFont('source-sans',h1 h2 h3 h4 h5 h6);
+@include googleFont('source-sans', body textarea button);
 @include themeTypography($themeColour,#666,#111);
 @include headerSizes(45,20);
 
-@import "components/header/header";
+.tech-list{
 
-@include fadeIn;
+	text-align:center;
+
+	li{
+		display: inline-block;
+		padding: 0 10px;
+	}
+
+}
+
+@import "views/components/header/header";
+@import "views/components/footer/footer";
+
+

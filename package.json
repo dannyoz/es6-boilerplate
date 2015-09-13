@@ -6,8 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "^4.8.0",
-    "jade": "^1.11.0"
+    "express": "^4.8.0"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
@@ -17,7 +16,9 @@
     "gulp-express": "^0.3.5",
     "gulp-minify-css": "^1.2.1",
     "gulp-sass": "^2.0.3",
-    "gulp-swig": "^0.7.4",
-    "sass-includes": "^0.3.2"
+    "sass-includes": "^0.3.2",
+    "react" : "0.13.3",
+    "superagent" : "1.3.0",
+    "q": "^1.4.1"
   }
 }

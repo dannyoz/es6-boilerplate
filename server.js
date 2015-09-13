@@ -4,37 +4,27 @@ var express = require('express'),
 
 var app = express();
 var server = app.listen(4000);
+var routeData = require('./app/routes.json');
 
-//Templating sttings
+
+//Templating settings
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/build/views');
 
 //For static asset files
-//app.use(express.static(__dirname + '/build'));
-
 ['css', 'img', 'js', 'views', 'api', 'msg'].forEach(function (dir){
     app.use('/'+dir, express.static(__dirname+'/build/'+dir));
 });
 
+routeData.routes.forEach(function (route){
 
-
-app.get('/', function(req, res) {
-	//res.sendFile('./build/index.html');
-
-	res.render('home', {
-	    pagename: 'awesome people',
-	    authors: ['Davie gs', 'Jim', 'Jane']
+	app.get(route.path, function(req, res) {
+		res.render(route.view, {
+		    pageTitle : route.title
+		});
 	});
-});
-
-app.get('/admin', function(req, res) {
-
-	res.render('admin', {
-	    pagename: 'awesome people',
-	    authors: ['Davie gs', 'Jim', 'Jane']
-	});
-
+	
 });
 
 app.get('/api',function(req,res){
