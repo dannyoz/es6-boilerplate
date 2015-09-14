@@ -6,7 +6,6 @@ var babelify = require("babelify");
 var compass = require('gulp-compass');
 var minifyCSS = require('gulp-minify-css');
 var server = require('gulp-express');
-var swig = require('gulp-swig');
 
 gulp.task('server', function () {
     server.run(['server.js']);
@@ -20,11 +19,7 @@ gulp.task('html', function () {
     .pipe(gulp.dest('./build/'));  
 });
 
-gulp.task('swig', function() {
-  gulp.src('./app/index.html')
-    .pipe(swig())
-    .pipe(gulp.dest('./build/'))
-});
+
 
 gulp.task('browserify', function () {
   gulp.src('./app/app.js', {entry: true})
