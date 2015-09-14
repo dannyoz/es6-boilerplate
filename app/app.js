@@ -1,8 +1,6 @@
 import React from "../node_modules/react/react";
 import Header from "./views/components/header/header";
-import HTTP from "../node_modules/superagent/lib/client";
-import q from '../node_modules/q/q';
-
+import apiService from './services/apiService';
 
 var Home = React.createClass({
 
@@ -15,8 +13,8 @@ var Home = React.createClass({
 	
 	componentDidMount () {
 
-
-		HTTP.get('/api')
+		this.api = new apiService();
+		this.api.request('/api')
 			.end(function(err, response){
 
 			    this.setState({
