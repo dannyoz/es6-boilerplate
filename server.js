@@ -3,7 +3,8 @@ var express = require('express'),
     http = require('http');
 
 var app = express();
-var server = app.listen(4000);
+var port = 4000;
+var server = app.listen(port);
 var routeData = require('./app/routes.json');
 
 
@@ -27,12 +28,12 @@ routeData.routes.forEach(function (route){
 	
 });
 
-app.get('/api',function(req,res){
+app.get('/api/:route',function(req,res){
 
-	var json = require('./app/api/test.json');
+	var json = require('./app/api/'+req.params.route+'.json');
 
 	res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(json));
 });
 
-console.log("Express server listening on port 4000");
+console.log("Express server listening on port ",port);
