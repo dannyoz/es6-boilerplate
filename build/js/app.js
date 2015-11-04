@@ -28,7 +28,7 @@ var Home = _node_modulesReactReact2["default"].createClass({
 	componentDidMount: function componentDidMount() {
 
 		this.api = new _servicesApiService2["default"]();
-		this.api.request('/api').end((function (err, response) {
+		this.api.request('/api/test').end((function (err, response) {
 
 			this.setState({
 				appName: response.body.appName,

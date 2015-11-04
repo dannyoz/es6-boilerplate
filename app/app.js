@@ -14,7 +14,7 @@ var Home = React.createClass({
 	componentDidMount () {
 
 		this.api = new apiService();
-		this.api.request('/api')
+		this.api.request('/api/test')
 			.end(function(err, response){
 
 			    this.setState({
