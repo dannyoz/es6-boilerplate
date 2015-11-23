@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var babelify = require("babelify");
-var compass = require('gulp-compass');
+var sass = require('gulp-sass');
 var minifyCSS = require('gulp-minify-css');
 var server = require('gulp-express');
 
@@ -19,8 +19,6 @@ gulp.task('html', function () {
     .pipe(gulp.dest('./build/'));  
 });
 
-
-
 gulp.task('browserify', function () {
   gulp.src('./app/app.js', {entry: true})
     .pipe(browserify({
@@ -29,13 +27,10 @@ gulp.task('browserify', function () {
     .pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('compass', function() {
-  gulp.src('./src/*.scss')
-    .pipe(compass({
-      css: './build/css',
-      sass: './app'
-    }))
-    .pipe(minifyCSS())
+gulp.task('sass', function () {
+  gulp.src('./app/styles.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./build/css'));
 });
 
 gulp.task('watch', function () {
@@ -44,5 +39,5 @@ gulp.task('watch', function () {
   gulp.watch('app/**/*.js', ['frontEnd']);
 });
 
-gulp.task('frontEnd', ['browserify', 'compass', 'html']);
-gulp.task('default', ['browserify', 'compass', 'html', 'watch', 'server']);
+gulp.task('frontEnd', ['browserify', 'sass', 'html']);
+gulp.task('default', ['browserify', 'sass', 'html', 'watch', 'server']);

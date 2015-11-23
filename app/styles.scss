@@ -1,47 +1,5 @@
-@import "../node_modules/sass-includes/sass/includes";
+@import "../node_modules/spice-sass/src/spice";
 
 @include normalise;
-@include containerClass;
-@include fullScreenClass;
-@include centreClasses;
-@include gridClasses;
-@include cardClass;
-@include columnText(3);
-@include tables;
-@include masonryClasses;
-@include formLined;
-@include rangeInput;
-@include lineIcons;
-@include fadeIn;
-
-
-
-/* --------------------------
-/* Includes LIGHT THEME - 0.2.2
-/* --------------------------
-*/
-$themeColour : #e9e9e9;
-$lighter : lighten($themeColour,5%);
-
-@include themeBase($themeColour);
-@include formsTheme(#333,$lighter,$col-primary);
-@include googleFont('source-sans',h1 h2 h3 h4 h5 h6);
-@include googleFont('source-sans', body textarea button);
-@include themeTypography($themeColour,#666,#111);
-@include headerSizes(45,20);
-
-.tech-list{
-
-	text-align:center;
-
-	li{
-		display: inline-block;
-		padding: 0 10px;
-	}
-
-}
-
-@import "views/components/header/header";
-@import "views/components/footer/footer";
 
 
